@@ -37,8 +37,8 @@ public class Plane : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {   
             landingTime += 0.1f * Time.deltaTime;
-            float interpolation = Landing.Evaluate(landingTime)*Time.deltaTime*speed;
-            if(transform.localScale.x < 0.1f)
+            float interpolation = Landing.Evaluate(landingTime) * Time.deltaTime;//
+            if(transform.localScale.x < 1.5f)
             {
                 Destroy(gameObject);
             }
