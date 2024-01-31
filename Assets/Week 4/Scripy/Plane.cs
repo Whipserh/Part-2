@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -5,11 +6,12 @@ using UnityEngine;
 
 public class Plane : MonoBehaviour
 {
-
+    private bool landed;
     SpriteRenderer image;
     // Start is called before the first frame update
     void Start()
     {
+        landed = false;
         trailPath = GetComponent<LineRenderer>();
         trailPath.positionCount = 1;
         trailPath.SetPosition(0, transform.position);
@@ -37,7 +39,7 @@ public class Plane : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (landed)
         {   
             landingTime += 0.1f * Time.deltaTime;
             float interpolation = Landing.Evaluate(landingTime) * Time.deltaTime;//
@@ -112,14 +114,24 @@ public class Plane : MonoBehaviour
     }
 
     private float damageDistance = 1.5f;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         image.color = Color.red;
 
-        Debug.Log(damageDistance);
-        if(Vector2.Distance((Vector2)transform.position, (Vector2)collision.gameObject.GetComponent<Transform>().position) <= damageDistance)
+        //Debug.Log(damageDistance);
+        if(Vector2.Distance((Vector2)transform.position, (Vector2)collision.gameObject.GetComponent<Transform>().position) <= damageDistance && collision.gameObject.tag == "plane")
         {
             Destroy(gameObject);
+        }
+        //if its not a plane then its the runway
+        if (collision.OverlapPoint(transform.position))
+        {
+            landed = true;
+        }
+        else
+        {
+            landed = false;
         }
     }
 
