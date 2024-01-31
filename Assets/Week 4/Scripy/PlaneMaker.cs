@@ -28,7 +28,7 @@ public class PlaneMaker : MonoBehaviour
             Vector2 position = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5));
             Vector2 direction = (Vector2)trans.position - position;
             float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-            Quaternion orientation = Quaternion.EulerRotation(0, 0, angle);//some how its random idk how
+            Quaternion orientation = Quaternion.EulerRotation(0f, 0f, angle);//some how its random idk how
             int num = Random.Range(1,4);
 
             switch (num)

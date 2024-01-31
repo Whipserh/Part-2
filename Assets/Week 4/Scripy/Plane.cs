@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Plane : MonoBehaviour
 {
+
+    SpriteRenderer image;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,7 @@ public class Plane : MonoBehaviour
         trailPath.SetPosition(0, transform.position);
         speed = Random.Range(1, 3);
         rigidbody = GetComponent<Rigidbody2D>();
+        image = GetComponent<SpriteRenderer>();
     }
 
     //this updates every time our rigidbody moves
@@ -106,6 +109,23 @@ public class Plane : MonoBehaviour
     private void OnMouseUp() {
 
     
+    }
+
+    private float damageDistance = 1.5f;
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        image.color = Color.red;
+
+        Debug.Log(damageDistance);
+        if(Vector2.Distance((Vector2)transform.position, (Vector2)collision.gameObject.GetComponent<Transform>().position) <= damageDistance)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        image.color = Color.white;
     }
 
 }//end of class

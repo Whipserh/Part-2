@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6975404625312324708}
   - component: {fileID: 5200474384772777858}
   - component: {fileID: 4849130019995750078}
+  - component: {fileID: 3612793989589855107}
   m_Layer: 0
   m_Name: PlaneD
   m_TagString: Untagged
@@ -159,14 +160,18 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.06, y: 0.099999994}
-      - {x: -0.12, y: 0.08}
-      - {x: -0.12, y: -0.03}
-      - {x: -0.049999997, y: -0.11}
-      - {x: 0.049999997, y: -0.11}
-      - {x: 0.12, y: -0.03}
-      - {x: 0.12, y: 0.06}
-      - {x: 0.08, y: 0.099999994}
+    - - {x: -0.04624585, y: 0.09153592}
+      - {x: -0.05828078, y: 0.06570838}
+      - {x: -0.10941989, y: 0.056723755}
+      - {x: -0.114709936, y: -0.00778177}
+      - {x: -0.070836, y: -0.044779982}
+      - {x: -0.055290062, y: -0.10259391}
+      - {x: 0.06269613, y: -0.100477904}
+      - {x: 0.06785566, y: -0.03956469}
+      - {x: 0.10941988, y: -0.019419888}
+      - {x: 0.11425237, y: 0.05902256}
+      - {x: 0.06544328, y: 0.06270332}
+      - {x: 0.043910563, y: 0.0921181}
   m_UseDelaunayMesh: 0
 --- !u!114 &5200474384772777858
 MonoBehaviour:
@@ -312,3 +317,38 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!58 &3612793989589855107
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6177520073771904941}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.25
