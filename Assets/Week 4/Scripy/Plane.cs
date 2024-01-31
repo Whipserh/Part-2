@@ -11,7 +11,7 @@ public class Plane : MonoBehaviour
         trailPath = GetComponent<LineRenderer>();
         trailPath.positionCount = 1;
         trailPath.SetPosition(0, transform.position);
-
+        speed = Random.Range(1, 3);
         rigidbody = GetComponent<Rigidbody2D>();
     }
 

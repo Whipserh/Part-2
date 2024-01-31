@@ -11,9 +11,11 @@ public class PlaneMaker : MonoBehaviour
     {
         trans = GetComponent<Transform>();
         timer = 0;
+        spawnRate = Random.Range(1, 5);
     }
     float timer;
     Transform trans;
+    int spawnRate;
     public GameObject prefab1, prefab2, prefab3, prefab4;
     // Update is called once per frame
     void Update()
@@ -26,20 +28,26 @@ public class PlaneMaker : MonoBehaviour
             Vector2 position = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5));
             Vector2 direction = (Vector2)trans.position - position;
             float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-            Quaternion orientation = Quaternion.EulerRotation(0, 0, (angle+(Random.Range(-22.5f,22.5f))));
+            Quaternion orientation = Quaternion.EulerRotation(0, 0, angle);//some how its random idk how
             int num = Random.Range(1,4);
-            num = 1;
-            Debug.Log(angle);
-
 
             switch (num)
             {
                 case 1:
                     Instantiate(prefab1, position, orientation);
                     break;
-
+                case 2:
+                    Instantiate(prefab2, position, orientation);
+                    break;
+                case 3:
+                    Instantiate(prefab3, position, orientation);
+                    break;
+                case 4:
+                    Instantiate(prefab4, position, orientation);
+                    break;
             }
 
+            spawnRate = Random.Range(1, 5);
             timer = 0;
         }//end if
     }

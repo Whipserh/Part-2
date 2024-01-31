@@ -245,9 +245,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab1: {fileID: 7338700334716090563, guid: e3f4c252fd1f22847bc82a062c6b7269, type: 3}
-  prefab2: {fileID: 0}
-  prefab3: {fileID: 0}
-  prefab4: {fileID: 0}
+  prefab2: {fileID: 5855246677290183470, guid: 0394ee59eb20bbf4f9bd99cb0afe6f50, type: 3}
+  prefab3: {fileID: 4865757691970007143, guid: ec425bb54ef4765499b2fde2056ffd46, type: 3}
+  prefab4: {fileID: 6177520073771904941, guid: c070a46f8e3262d4c9873f71ad246762, type: 3}
 --- !u!4 &1320043233
 Transform:
   m_ObjectHideFlags: 0
