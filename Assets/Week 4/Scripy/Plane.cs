@@ -35,9 +35,9 @@ public class Plane : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.Space))
-        {
+        {   
             landingTime += 0.1f * Time.deltaTime;
-            float interpolation = Landing.Evaluate(landingTime);
+            float interpolation = Landing.Evaluate(landingTime)*Time.deltaTime*speed;
             if(transform.localScale.x < 0.1f)
             {
                 Destroy(gameObject);
@@ -69,7 +69,7 @@ public class Plane : MonoBehaviour
     Vector2 lastPosition;
     Vector2 currentPosition;
     public float pointThreshold = 0.2f;
-
+    public float landingSpeed = 5;
     public AnimationCurve Landing;
     float landingTime;
     //when we first click on the plane
