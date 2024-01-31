@@ -10,21 +10,20 @@ public class PlaneMaker : MonoBehaviour
     void Start()
     {
         trans = GetComponent<Transform>();
+        timer = 0;
     }
-
-    public GameObject CornerA, CornerB;
+    float timer;
     Transform trans;
     public GameObject prefab1, prefab2, prefab3, prefab4;
     // Update is called once per frame
     void Update()
     {
-        GameObject plane;
-        if (Input.GetKeyDown(KeyCode.Q))
+        timer = timer +(1f * Time.deltaTime);
+
+        if (timer >=2)
         {
 
-            int x = Random.Range(0, 1);
-            int y = Random.Range(0, 1);
-            Vector2 position = new Vector2(Mathf.Lerp(CornerA.transform.position.x, CornerB.transform.position.x, x), Mathf.Lerp(CornerA.transform.position.y, CornerB.transform.position.y, y));
+            Vector2 position = new Vector2(Random.Range(-5, 5), Random.Range(-5, 5));
             Vector2 direction = (Vector2)trans.position - position;
             float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
             Quaternion orientation = Quaternion.EulerRotation(0, 0, (angle+(Random.Range(-22.5f,22.5f))));
@@ -40,6 +39,8 @@ public class PlaneMaker : MonoBehaviour
                     break;
 
             }
-        }
+
+            timer = 0;
+        }//end if
     }
 }
