@@ -29,6 +29,8 @@ public class Knight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         if (health <= 0)
         {
             dead = true;
@@ -39,14 +41,17 @@ public class Knight : MonoBehaviour
             {
                 destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }
-            animator.SetFloat("movement", movement.magnitude);
+        if (Input.GetMouseButtonDown(1))
+        {
+            animator.SetTrigger("attack");
+        }
+        animator.SetFloat("movement", movement.magnitude);
+
         
 
-          
-        
 
-        
-        
+
+
     }
 
     private void FixedUpdate()
@@ -93,7 +98,5 @@ public class Knight : MonoBehaviour
             //take damage
             animator.SetTrigger("takeDamage");
         }
-        
-        
     }
 }
