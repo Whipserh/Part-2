@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Knight : MonoBehaviour
 {
-    private float MAXHEALTH = 10f;
+    private float MAXHEALTH = 5f;
     public float health;
     private bool clickOnSelf = false;
     private Vector2 destination;
