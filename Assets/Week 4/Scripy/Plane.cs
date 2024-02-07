@@ -1,4 +1,5 @@
 
+//using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -6,7 +7,7 @@ using UnityEngine;
 
 public class Plane : MonoBehaviour
 {
-    private bool landed;
+    public bool landed;
     SpriteRenderer image;
     // Start is called before the first frame update
     void Start()
@@ -117,22 +118,16 @@ public class Plane : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        image.color = Color.red;
-
+        if (collision.gameObject.GetComponent<Runway>() == null)
+        {
+            image.color = Color.red;
+        }
         //Debug.Log(damageDistance);
         if(Vector2.Distance((Vector2)transform.position, (Vector2)collision.gameObject.GetComponent<Transform>().position) <= damageDistance && collision.gameObject.tag == "plane")
         {
             Destroy(gameObject);
         }
-        //if its not a plane then its the runway
-        if (collision.OverlapPoint(transform.position))
-        {
-            landed = true;
-        }
-        else
-        {
-            landed = false;
-        }
+ 
     }
 
     private void OnTriggerExit2D(Collider2D collision)

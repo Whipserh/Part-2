@@ -18,9 +18,12 @@ public class Runway : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.transform.position)
-        
+        Plane plane = collision.gameObject.GetComponent<Plane>();
+        if(plane != null)
+        {
             score++;
+            plane.landed = true;
+        }
         
     }
 }
