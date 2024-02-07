@@ -14,6 +14,8 @@ public class Knight : MonoBehaviour
     public bool dead;
     Rigidbody2D rb;
     Animator animator;
+    public HealthBar healthBar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +28,12 @@ public class Knight : MonoBehaviour
     
     // Update is called once per frame
     void Update()
-    { 
-        if (dead) return;
+    {
+        if (health <= 0)
+        {
+            dead = true;
+            return;
+        }
         
             if (Input.GetMouseButtonDown(0) && !clickOnSelf)
             {
@@ -60,7 +66,8 @@ public class Knight : MonoBehaviour
     {
         if (dead) return; 
         clickOnSelf = true;
-        takeDamage(1);
+        gameObject.SendMessage("TakeDamage", 1);
+
         
     }
 
@@ -69,7 +76,7 @@ public class Knight : MonoBehaviour
         clickOnSelf = false;
     }
 
-    void takeDamage(float dmg)
+    public void TakeDamage(float dmg)
     {
 
         health -= dmg;
