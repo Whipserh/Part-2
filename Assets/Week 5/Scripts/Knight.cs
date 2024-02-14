@@ -19,7 +19,8 @@ public class Knight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = MAXHEALTH;
+        
+        health = PlayerPrefs.GetInt("health", (int)MAXHEALTH);
         animator = GetComponent<Animator>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         movement = Vector2.zero;
@@ -86,6 +87,7 @@ public class Knight : MonoBehaviour
 
         health -= dmg;
         health = Mathf.Clamp(health, 0, MAXHEALTH);
+        PlayerPrefs.SetInt("health", (int)health);
         if (health <= 0)
         {
             //we die

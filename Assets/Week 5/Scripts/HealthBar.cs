@@ -6,9 +6,14 @@ public class HealthBar : MonoBehaviour
 {
     public Slider slider;
 
+    private void Start()
+    {
+        slider.value = PlayerPrefs.GetInt("Slider", 5);
+    }
+
     public void TakeDamage(float dmg)
     {
-
         slider.value -= dmg;
+        PlayerPrefs.SetInt("Slider", (int)slider.value);
     }
 }
