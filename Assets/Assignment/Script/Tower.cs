@@ -11,7 +11,7 @@ public class Tower : MonoBehaviour
     int MAXHEALTH = 100;
     public GameObject spawnPoint;
     public GameObject enemyBot;
-    int timer;
+    float timer;
 
     
     void Start()
@@ -23,7 +23,7 @@ public class Tower : MonoBehaviour
     // Update is called once per frame
     void Update() 
     {
-        timer += (int)(1 * Time.deltaTime);
+        timer += (1 * Time.deltaTime);
         if(enemyTower && timer >= 3)//if we are the enemytower and it has been 3 seconds spawn a new bad guy
         {
             Instantiate(enemyBot, spawnPoint.transform.position, spawnPoint.transform.rotation); 
@@ -32,7 +32,7 @@ public class Tower : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.GetComponent<Arrow>() != null)//if a arrow touches the tower
         {
