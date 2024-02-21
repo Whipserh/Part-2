@@ -12,6 +12,11 @@ public class Guard : MonoBehaviour
     public GameObject objective;
     bool dead = false;
     bool move = true;
+
+    Guard otherGuard;
+    bool attacking = false;
+    float timer = 1;
+
     // Update is called once per frame
     void Update()
     {
@@ -19,10 +24,14 @@ public class Guard : MonoBehaviour
         if(health <= 0)
         {
             //animate death
+            if(!dead)
             gameObject.GetComponent<Animator>().SetTrigger("death");
             //destroy but give time for death animation
             Destroy(gameObject, 1);
             dead = true;
+
+            //disable box collider so they can walk by
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 
@@ -38,6 +47,19 @@ public class Guard : MonoBehaviour
             Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
             rb.MovePosition(rb.position + movement.normalized * speed * Time.deltaTime);//move towards objective
         }
+
+        if (attacking)//as long as there is some form of collision with another guard that guard will continuosly attack
+        {
+            if (timer > 2)
+            {
+                gameObject.GetComponent<Animator>().SetTrigger("attack");
+                otherGuard.Takedamage(1);
+                timer = 0;
+            }else
+            {
+                timer += 1 * Time.deltaTime;
+            }
+        }
     }
 
 
@@ -48,11 +70,11 @@ public class Guard : MonoBehaviour
         move = false;
         gameObject.GetComponent<Animator>().SetBool("walk", false);
         //check to see if they touched a guard or a tower
-        Guard otherGuard = collision.gameObject.GetComponent<Guard>();
+        otherGuard = collision.gameObject.GetComponent<Guard>();
         Tower tower = collision.gameObject.GetComponent<Tower>();
         if (otherGuard != null)//if they touch another guard
         {
-            otherGuard.Takedamage(1);
+            attacking = true;
         }else if (tower != null)//if the guard touches the tower it should destroy itself
         {
             Destroy(gameObject);
@@ -63,6 +85,7 @@ public class Guard : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)//when we are no longer in contact with anything then move again
     {
         move = true;
+        attacking = false;
     }
 
 
