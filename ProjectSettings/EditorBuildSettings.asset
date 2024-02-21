@@ -9,15 +9,9 @@ EditorBuildSettings:
     path: Assets/Week 4/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Week 6/Scenes/Scene A.unity
-    guid: 6e8c815a479c2764dbf4995634fd9bd2
+    path: Assets/Assignment/Scene/title.unity
+    guid: 2c6265a95f8493a4aa3702f70dcb8da4
   - enabled: 1
-    path: Assets/Week 6/Scenes/Scene B.unity
-    guid: d724406a842e6e54d802d54e1bd5271d
-  - enabled: 1
-    path: Assets/Week 5/scenes/week5scene.unity
-    guid: 6254fdfe9db2cc949aa51b738b9fb373
-  - enabled: 1
-    path: Assets/Week 6/Scenes/UI Scene.unity
-    guid: 3d8dc7709d8f49141bdf23080d993d86
+    path: Assets/Assignment/Scene/tower defense.unity
+    guid: 3b46c0501ac72924098b9eab9a5b2db7
   m_configObjects: {}
