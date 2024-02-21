@@ -25,7 +25,7 @@ public class Guard : MonoBehaviour
         {
             //animate death
             if(!dead)
-            gameObject.GetComponent<Animator>().SetTrigger("death");
+            gameObject.GetComponent<Animator>().SetBool("death", true);
             //destroy but give time for death animation
             Destroy(gameObject, 1);
             dead = true;
@@ -72,12 +72,16 @@ public class Guard : MonoBehaviour
         //check to see if they touched a guard or a tower
         otherGuard = collision.gameObject.GetComponent<Guard>();
         Tower tower = collision.gameObject.GetComponent<Tower>();
+        Arrow arrow = collision.gameObject.GetComponent<Arrow>();
         if (otherGuard != null)//if they touch another guard
         {
             attacking = true;
         }else if (tower != null)//if the guard touches the tower it should destroy itself
         {
             Destroy(gameObject);
+        }else if(arrow != null)
+        {
+            Takedamage(1);
         }
 
     }

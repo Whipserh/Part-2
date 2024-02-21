@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5794294370333558935}
   - component: {fileID: 3660296047426220924}
   - component: {fileID: 3794792622423407226}
+  - component: {fileID: 4125915439739811795}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -77,6 +78,19 @@ MonoBehaviour:
   enemyTower: 0
   spawnPoint: {fileID: 0}
   enemyBot: {fileID: 0}
+--- !u!114 &4125915439739811795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156367533152064506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba035c7c9629fe4ea7837ce66d6eb9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 0}
 --- !u!1 &2497788361123506877
 GameObject:
   m_ObjectHideFlags: 0

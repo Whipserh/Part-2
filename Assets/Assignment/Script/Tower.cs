@@ -12,10 +12,11 @@ public class Tower : MonoBehaviour
     public GameObject spawnPoint;
     public GameObject enemyBot;
     float timer;
-
+    HelthBar bar;
     
     void Start()
     {
+        bar = gameObject.GetComponent<HelthBar>();
         timer = 0;
         health = MAXHEALTH;
     }
@@ -46,6 +47,7 @@ public class Tower : MonoBehaviour
 
     public void TakeDamage(int dmg)
     {
+        bar.TakeDamage(dmg);
         health -= dmg;
     }
 }

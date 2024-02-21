@@ -6,7 +6,7 @@ public class HealthBar : MonoBehaviour
 {
     public Slider slider;
 
-    private void Start()
+    void Start()
     {
         slider.value = PlayerPrefs.GetInt("Slider", 5);
     }
