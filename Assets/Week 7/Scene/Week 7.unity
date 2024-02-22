@@ -601,7 +601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 938751580}
-  maxForce: 2
+  maxForce: 300
 --- !u!1 &590464406
 GameObject:
   m_ObjectHideFlags: 0

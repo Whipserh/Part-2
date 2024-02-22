@@ -47,7 +47,7 @@ public class Controller : MonoBehaviour
         if (counting)
         {
             timer += Time.deltaTime;
-            slider.value = Mathf.Abs(Mathf.Sin(timer * 10 * Mathf.Deg2Rad));//on a sin 
+            slider.value = Mathf.Abs(Mathf.Sin(timer * 100 * Mathf.Deg2Rad));//on a sin 
         }
     }
 
