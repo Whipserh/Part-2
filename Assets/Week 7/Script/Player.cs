@@ -20,9 +20,9 @@ public class Player : MonoBehaviour
         
     }
 
-    public void Selected(bool selected)
+    public void Selected(bool selects)
     {
-        if (selected)
+        if (selects)
         {
             based.GetComponent<SpriteRenderer>().color = Color.green;
         }
@@ -34,13 +34,12 @@ public class Player : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Selected(true);
+        
+
+        Controller.SetSelectedPlayer(this);// we set the gameObject as self
     }
 
-    private void OnMouseUp()
-    {
-        Selected(false);
-    }
+    
 
     
 }
